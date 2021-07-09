@@ -4,7 +4,7 @@ export default async function LengthDescriptionAnottation(request: Request, resp
     const { description } = request.body;
 
     if (description > 150 ) {
-        return response.status(400).json({
+        return await response.status(400).json({
             mensagem: "Descrição não pode ultrapassar 50 caracteres."
         })
     }
