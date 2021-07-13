@@ -6,6 +6,11 @@ class UserController {
     async index(request, response) {
         try {
             const users = await User_1.User.find();
+            if (!users) {
+                return await response.status(400).json({
+                    mensagem: "Ainda não foi criado nenhum usuário."
+                });
+            }
             return response.json(users);
         }
         catch (error) {

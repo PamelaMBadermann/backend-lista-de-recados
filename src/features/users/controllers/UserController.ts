@@ -1,12 +1,17 @@
 import { Request, Response } from 'express';
 import { User } from '../../../core/data/database/entities/User';
 import { Anottation } from '../../../core/data/database/entities/Anottation';
-
 export default class UserController {
     
     public async index(request: Request, response: Response) {
         try {
             const users = await User.find();
+
+            if (!users) {
+                return await response.status(400).json({
+                    mensagem: "Ainda não foi criado nenhum usuário."
+                });
+            }        
 
             return response.json(users);
         } catch (error) {

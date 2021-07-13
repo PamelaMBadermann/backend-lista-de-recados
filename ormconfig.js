@@ -10,10 +10,10 @@ module.exports = {
     synchronize: false,
     logging: false,
     entities: [
-        `${process.env.DB_PATH}/entities/**/*`
+        './src/core/data/database/entities/**/*'
     ], 
     migrations: [
-        `${process.env.DB_PATH}/migrations/**/*`
+        './src/core/data/database/entities/**/*'
     ],
     cli: {
         entitiesDir: './src/core/data/database/entities',

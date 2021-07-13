@@ -4,7 +4,7 @@ export default async function LengthTitleAnottation(request: Request, response: 
     const { title } = request.body;
 
     if (title > 50 ) {
-        return await response.status(400).json({
+        return response.status(400).json({
             mensagem: "Título não pode ultrapassar 50 caracteres."
         })
     }
