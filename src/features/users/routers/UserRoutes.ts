@@ -1,10 +1,6 @@
 import { Router } from 'express';
 import UserController from '../controllers/UserController';
-import FindUsers from '../middlewares/FindUsers';
-import UserUidNonexistent from '../middlewares/UidNonexistent';
-import FillUser from '../middlewares/FillUser';
-import ExistentUsername from '../middlewares/ExistentUsername';
-import LengthUser from '../middlewares/LengthUser';
+
 export default class UserRoutes {
     public init(): Router {
         const routes = Router();

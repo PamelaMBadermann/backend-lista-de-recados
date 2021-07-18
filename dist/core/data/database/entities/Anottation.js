@@ -74,7 +74,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], Anottation.prototype, "beforeUpdate", null);
 Anottation = __decorate([
-    typeorm_1.Entity({ name: 'anottations' }),
+    typeorm_1.Entity({ name: 'anottation' }),
     __metadata("design:paramtypes", [String, String, String, String, Date,
         Date])
 ], Anottation);
