@@ -1,8 +1,6 @@
-import express from 'express';
+import express, { Router, Request, Response } from 'express';
 import cors from 'cors';
-import Database from '../data/connections/Database';
-import UserRoutes from '../../features/users/routers/UserRoutes';
-import AnottationRoutes from '../../features/anottations/routers/AnottationRoutes';
+import ProjectRoutes from '../../features/anottations/presentation/routes/routes';
 
 export default class App {
     readonly #express: express.Application;
@@ -11,38 +9,40 @@ export default class App {
         this.#express = express();
     }
 
-    public async init() {
+    public get server(): express.Application {
+        return this.#express;
+    }
+
+    public init() {
         this.config();
         this.middlewares();
         this.routes();
-        await this.database();
-    }
-
-    private async database() {
-        await new Database().openConnection();
     }
 
     private config() {
+        this.#express.use(express.urlencoded({extended: false}));
         this.#express.use(express.json());
-        this.#express.use(express.urlencoded({ extended: false }));
         this.#express.use(cors());
     }
 
     private middlewares() {
-
+        // TODO
     }
 
     private routes() {
-        const userRoutes = new UserRoutes().init();
-        const anottationRoutes = new AnottationRoutes().init();
+        const router = Router();
+
+        this.#express.get('/', (_: Request, response: Response) =>response.redirect('/api'));
+        this.#express.use('/api', router);
         
-        this.#express.use(userRoutes);
-        this.#express.use(anottationRoutes);
+        router.get('/', (_: Request, response: Response) =>response.send('API rodando...'));
+
+        new ProjectRoutes().init(router);
     }
 
-    public start(port: any) {
+    public start(port: number) {
         this.#express.listen(port, () => {
-            console.log('Api maravilinda rodando...');
+            console.log('API rodando...');
         });
     }
-};
+}
