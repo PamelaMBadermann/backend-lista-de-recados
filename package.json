@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "14.17.4",
+    "yarn": "1.19.1"
+  },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.10",
@@ -21,7 +25,6 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "ioredis": "^4.27.6",
-    "node": "^16.6.1",
     "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",
     "ts-node-dev": "^1.1.8",
