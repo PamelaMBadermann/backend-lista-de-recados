@@ -21,6 +21,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "ioredis": "^4.27.6",
+    "node": "^16.6.1",
     "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",
     "ts-node-dev": "^1.1.8",
@@ -34,5 +35,7 @@
     "build": "tsc",
     "migration:run": "ts-node-dev --transpile-only ./node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node-dev --transpile-only ./node_modules/typeorm/cli.js migration:revert"
-  }
+  },
+  "repository": "https://github.com/PamelaMBadermann/backend-lista-de-recados.git",
+  "author": "Pamela Badermann <badermann.pamela@gmail.com>"
 }
