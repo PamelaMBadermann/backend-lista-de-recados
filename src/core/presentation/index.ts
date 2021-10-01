@@ -1,5 +1,5 @@
 export * from './adapters';
-export * from './app';
+export * from './App';
 export * from './contracts';
 export * from './enums';
 export * from './errors';
